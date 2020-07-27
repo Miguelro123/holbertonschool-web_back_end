@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
-"""Async basics in Python task 0"""
+"""
+Async basics in Python task 0
+"""
+
 import asyncio
 import time
 
