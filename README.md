@@ -12,6 +12,7 @@ Number | Projects | Date and time
 0x01 | [Python - Async](./0x01-python_async_function) | 21/07/2020, 2 days
 0x02 | [Python - Async Comprehension](./0x02-python_async_comprehension) | 22/07/2020, 2 days
 0x03 | [Caching](./0x03-caching) | 24/07/2020, 5 days
+0x03 | [Pagination](./0x04-pagination) | 28/07/2020, 3 days
 
 ---
 
