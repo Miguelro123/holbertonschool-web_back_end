@@ -39,17 +39,19 @@ At the end of this project, you are expected to be able to explain to anyone, wi
 <details>
 <summary>View Contents</summary>
 
-0. Regex-ing mandatory
-Score: 0.00% (Checks completed: 0.00%)
-Write a function called filter_datum that returns the log message obfuscated:
+### [0. Regex-ing](./filtered_logger.py)
 
-Arguments:
-fields: a list of strings representing all fields to obfuscate
-redaction: a string representing by what the field will be obfuscated
-message: a string representing the log line
-separator: a string representing by which character is separating all fields in the log line (message)
-The function should use a regex to replace occurrences of certain field values.
-filter_datum should be less than 5 lines long and use re.sub to perform the substitution with a single regex.
+Write a function called `filter_datum` that returns the log message obfuscated:
+
+- Arguments:
+    - `fields`: a list of strings representing all fields to obfuscate
+    - `redaction`: a string representing by what the field will be obfuscated
+    - `message`: a string representing the log line
+    - `separator`: a string representing by which character is separating all fields in the log line (`message`)
+    - The function should use a regex to replace occurrences of certain field values.
+    - `filter_datum` should be less than 5 lines long and use `re.sub` to perform the substitution with a single regex.
+
+```
 bob@dylan:~$ cat main.py
 #!/usr/bin/env python3
 """
@@ -69,16 +71,19 @@ bob@dylan:~$ ./main.py
 name=egg;email=eggmin@eggsample.com;password=xxx;date_of_birth=xxx;
 name=bob;email=bob@dylan.com;password=xxx;date_of_birth=xxx;
 bob@dylan:~$
-Repo:
+```
 
-GitHub repository: holbertonschool-web_back_end
-Directory: 0x05-personal_data
-File: filtered_logger.py
+**Repo:**
 
-1. Log formatter mandatory
-Score: 0.00% (Checks completed: 0.00%)
-Copy the following code into filtered_logger.py.
+* GitHub repository: `holbertonschool-web_back_end`
+* Directory: `0x05-personal_data`
+* File: `filtered_logger.py`
 
+### [1. Log formatter](./filtered_logger.py)
+
+Copy the following code into `filtered_logger.py`.
+
+```
 import logging
 
 
@@ -95,12 +100,15 @@ class RedactingFormatter(logging.Formatter):
 
     def format(self, record: logging.LogRecord) -> str:
         NotImplementedError
-Update the class to accept a list of strings fields constructor argument.
+```
 
-Implement the format method to filter values in incoming log records using filter_datum. Values for fields in fields should be filtered.
+Update the class to accept a list of strings `fields` constructor argument.
 
-DO NOT extrapolate FORMAT manually. The format method should be less than 5 lines long.
+Implement the `format` method to filter values in incoming log records using `filter_datum`. Values for fields in `fields` should be filtered.
 
+DO NOT extrapolate `FORMAT` manually. The `format` method should be less than 5 lines long.
+
+```
 bob@dylan:~$ cat main.py
 #!/usr/bin/env python3
 """
@@ -121,26 +129,30 @@ bob@dylan:~$
 bob@dylan:~$ ./main.py
 [HOLBERTON] my_logger INFO 2019-11-19 18:24:25,105: name=Bob; email=***; ssn=***; password=***;
 bob@dylan:~$
-Repo:
+```
 
-GitHub repository: holbertonschool-web_back_end
-Directory: 0x05-personal_data
-File: filtered_logger.py
+**Repo:**
 
-2. Create logger mandatory
-Score: 0.00% (Checks completed: 0.00%)
-Use user_data.csv for this task
+* GitHub repository: `holbertonschool-web_back_end`
+* Directory: `0x05-personal_data`
+* File: `filtered_logger.py`
 
-Implement a get_logger function that takes no arguments and returns a logging.Logger object.
+### [2. Create logger](./filtered_logger.py)
 
-The logger should be named "user_data" and only log up to logging.INFO level. It should not propagate messages to other loggers. It should have a StreamHandler with RedactingFormatter as formatter.
+Use [user_data.csv](https://holbertonintranet.s3.amazonaws.com/uploads/misc/2019/11/a2e00974ce6b41460425.csv?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUWMNL5ANN%2F20200814%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20200814T032642Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=4e9fa7afd312465e3883a7af85625fe69979aae6e33adbd6ee711056a7ee9c5e) for this task
 
-Create a tuple PII_FIELDS constant at the root of the module containing the fields from user_data.csv that are considered PII. PII_FIELDS can contain only 5 fields - choose the right list of fields that can are considered as “important” PIIs or information that you must hide in your logs. Use it to parameterize the formatter.
+Implement a `get_logger` function that takes no arguments and returns a `logging.Logger` object.
 
-Tips:
+The logger should be named `"user_data"` and only log up to `logging.INFO` level. It should not propagate messages to other loggers. It should have a `StreamHandler` with `RedactingFormatter` as formatter.
 
-What Is PII, non-PII, and personal data?
-Uncovering Password Habits
+Create a tuple `PII_FIELDS` constant at the root of the module containing the fields from `user_data.csv` that are considered PII. `PII_FIELDS` can contain only 5 fields - choose the right list of fields that can are considered as “important” PIIs or information that you must hide in your logs. Use it to parameterize the formatter.
+
+**Tips:**
+
+- [What Is PII, non-PII, and personal data?](https://piwik.pro/blog/what-is-pii-personal-data/)
+- [Uncovering Password Habits](https://digitalguardian.com/blog/uncovering-password-habits-are-users-password-security-habits-improving-infographic)
+
+```
 bob@dylan:~$ cat main.py
 #!/usr/bin/env python3
 """
@@ -160,24 +172,28 @@ bob@dylan:~$ ./main.py
 <class 'logging.Logger'>
 PII_FIELDS: 5
 bob@dylan:~$
-Repo:
+```
 
-GitHub repository: holbertonschool-web_back_end
-Directory: 0x05-personal_data
-File: filtered_logger.py
+**Repo:**
 
-3. Connect to secure database mandatory
-Score: 0.00% (Checks completed: 0.00%)
+* GitHub repository: `holbertonschool-web_back_end`
+* Directory: `0x05-personal_data`
+* File: `filtered_logger.py`
+
+### [3. Connect to secure database](./filtered_logger.py)
+
 Database credentials should NEVER be stored in code or checked into version control. One secure option is to store them as environment variable on the application server.
 
-In this task, you will connect to a secure holberton database to read a users table. The database is protected by a username and password that are set as environment variables on the server named PERSONAL_DATA_DB_USERNAME (set the default as “root”), PERSONAL_DATA_DB_PASSWORD (set the default as an empty string) and PERSONAL_DATA_DB_HOST (set the default as “localhost”).
+In this task, you will connect to a secure `holberton` database to read a `users` table. The database is protected by a username and password that are set as environment variables on the server named `PERSONAL_DATA_DB_USERNAME` (set the default as “root”), `PERSONAL_DATA_DB_PASSWORD` (set the default as an empty string) and `PERSONAL_DATA_DB_HOST` (set the default as “localhost”).
 
-The database name is stored in PERSONAL_DATA_DB_NAME.
+The database name is stored in `PERSONAL_DATA_DB_NAME`.
 
-Implement a get_db function that returns a connector to the database.
+Implement a `get_db` function that returns a connector to the database.
 
-Use the os module to obtain credentials from the environment
-Use the module mysql-connector-python to connect to the MySQL database (pip3 install mysql-connector-python)
+- Use the `os` module to obtain credentials from the environment
+- Use the module `mysql-connector-python` to connect to the MySQL database (`pip3 install mysql-connector-python`)
+
+```
 bob@dylan:~$ cat main.sql
 -- setup mysql server
 -- configure permissions
@@ -223,27 +239,34 @@ bob@dylan:~$
 bob@dylan:~$ PERSONAL_DATA_DB_USERNAME=root PERSONAL_DATA_DB_PASSWORD=root PERSONAL_DATA_DB_HOST=localhost PERSONAL_DATA_DB_NAME=my_db ./main.py
 2
 bob@dylan:~$
-Repo:
+```
 
-GitHub repository: holbertonschool-web_back_end
-Directory: 0x05-personal_data
-File: filtered_logger.py
+**Repo:**
 
-4. Read and filter data mandatory
-Implement a main function that takes no arguments and returns nothing.
+* GitHub repository: `holbertonschool-web_back_end`
+* Directory: `0x05-personal_data`
+* File: `filtered_logger.py`
 
-The function will obtain a database connection using get_db and retrieve all rows in the users table and display each row under a filtered format like this:
+### [4. Read and filter data](./filtered_logger.py)
+Implement a `main` function that takes no arguments and returns nothing.
 
+The function will obtain a database connection using `get_db` and retrieve all rows in the `users` table and display each row under a filtered format like this:
+
+```
 [HOLBERTON] user_data INFO 2019-11-19 18:37:59,596: name=***; email=***; phone=***; ssn=***; password=***; ip=e848:e856:4e0b:a056:54ad:1e98:8110:ce1b; last_login=2019-11-14T06:16:24; user_agent=Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; WOW64; Trident/5.0; KTXN);
+```
+
 Filtered fields:
 
-name
-email
-phone
-ssn
-password
-Only your main function should run when the module is executed.
+- name
+- email
+- phone
+- ssn
+- password
 
+Only your `main` function should run when the module is executed.
+
+```
 bob@dylan:~$ cat main.sql
 -- setup mysql server
 -- configure permissions
@@ -280,20 +303,23 @@ bob@dylan:~$ PERSONAL_DATA_DB_USERNAME=root PERSONAL_DATA_DB_PASSWORD=root PERSO
 [HOLBERTON] user_data INFO 2019-11-19 18:37:59,596: name=***; email=***; phone=***; ssn=***; password=***; ip=60ed:c396:2ff:244:bbd0:9208:26f2:93ea; last_login=2019-11-14 06:14:24; user_agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.157 Safari/537.36;
 [HOLBERTON] user_data INFO 2019-11-19 18:37:59,621: name=***; email=***; phone=***; ssn=***; password=***; ip=f724:c5d1:a14d:c4c5:bae2:9457:3769:1969; last_login=2019-11-14 06:16:19; user_agent=Mozilla/5.0 (Linux; U; Android 4.1.2; de-de; GT-I9100 Build/JZO54K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30;
 bob@dylan:~$
-Repo:
+```
 
-GitHub repository: holbertonschool-web_back_end
-Directory: 0x05-personal_data
-File: filtered_logger.py
+**Repo:**
 
-5. Encrypting passwords mandatory
-Score: 0.00% (Checks completed: 0.00%)
+* GitHub repository: `holbertonschool-web_back_end`
+* Directory: `0x05-personal_data`
+* File: `filtered_logger.py`
+
+### [5. Encrypting passwords](./encrypt_password.py)
+
 User passwords should NEVER be stored in plain text in a database.
 
-Implement a hash_password function that expects one string argument and returns a salted, hashed password, which is a byte string.
+Implement a `hash_password` function that expects one string argument and returns a salted, hashed password, which is a byte string.
 
-Use the bcrypt package to perform the hashing (with hashpw).
+Use the `bcrypt` package to perform the hashing (with `hashpw`).
 
+```
 bob@dylan:~$ cat main.py
 #!/usr/bin/env python3
 """
@@ -311,18 +337,21 @@ bob@dylan:~$ ./main.py
 b'$2b$12$Fnjf6ew.oPZtVksngJjh1.vYCnxRjPm2yt18kw6AuprMRpmhJVxJO'
 b'$2b$12$xSAw.bxfSTAlIBglPMXeL.SJnzme3Gm0E7eOEKOVV2OhqOakyUN5m'
 bob@dylan:~$
-Repo:
+```
 
-GitHub repository: holbertonschool-web_back_end
-Directory: 0x05-personal_data
-File: encrypt_password.py
+**Repo:**
 
-6. Check valid password mandatory
-Score: 0.00% (Checks completed: 0.00%)
-Implement an is_valid function that expects a hashed_password bytes argument and password string argument and returns a boolean.
+* GitHub repository: `holbertonschool-web_back_end`
+* Directory: `0x05-personal_data`
+* File: `encrypt_password.py`
 
-Use bcrypt to validate that the provided password matches the hashed password.
+### [6. Check valid password](./encrypt_password.py)
 
+Implement an `is_valid` function that expects a `hashed_password` `bytes` argument and `password` string argument and returns a boolean.
+
+Use `bcrypt` to validate that the provided password matches the hashed password.
+
+```
 bob@dylan:~$ cat main.py
 #!/usr/bin/env python3
 """
@@ -342,11 +371,13 @@ bob@dylan:~$ ./main.py
 b'$2b$12$Fnjf6ew.oPZtVksngJjh1.vYCnxRjPm2yt18kw6AuprMRpmhJVxJO'
 True
 bob@dylan:~$
-Repo:
+```
 
-GitHub repository: holbertonschool-web_back_end
-Directory: 0x05-personal_data
-File: encrypt_password.py
+**Repo:**
+
+* GitHub repository: `holbertonschool-web_back_end`
+* Directory: `0x05-personal_data`
+* File: `encrypt_password.py`
 
 </details>
 
