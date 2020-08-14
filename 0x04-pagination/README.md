@@ -2,7 +2,7 @@
 
 ## Resources
 
-### Read or watch:
+**Read or watch:**
 
 - [REST API Design: Pagination](https://www.moesif.com/blog/technical/api-design/REST-API-Design-Filtering-Sorting-and-Pagination/#pagination)
 - [HATEOAS](https://en.wikipedia.org/wiki/HATEOAS)
@@ -72,9 +72,7 @@ bob@dylan:~$ ./main.py
 bob@dylan:~$
 ```
 
-
-**Repo:
-
+**Repo:**
 
 * GitHub repository: `holbertonschool-web_back_end`
 * Directory: `0x04-pagination`
@@ -177,9 +175,7 @@ AssertionError raised when page and/or page_size are not ints
 bob@dylan:~$ 
 ```
 
-
-**Repo:
-
+**Repo:**
 
 * GitHub repository: `holbertonschool-web_back_end`
 * Directory: `0x04-pagination`
@@ -232,9 +228,7 @@ bob@dylan:~$ ./main.py
 bob@dylan:~$ 
 ```
 
-
-**Repo:
-
+**Repo:**
 
 * GitHub repository: `holbertonschool-web_back_end`
 * Directory: `0x04-pagination`
@@ -300,9 +294,7 @@ Implement a `get_hyper_index` method with two integer arguments: `index` with a 
     - `page_size`: the current page size
     - `data`: the actual page of the dataset
 
-
-**Requirements/Behavior:
-
+**Requirements/Behavior:**
 
 - Use `assert` to verify that `index` is in a valid range.
 - If the user queries index 0, `page_size` 10, they will get rows indexed 0 to 9 included.
@@ -361,9 +353,7 @@ Nb items: 19417
 bob@dylan:~$ 
 ```
 
-
-**Repo:
-
+**Repo:**
 
 * GitHub repository: `holbertonschool-web_back_end`
 * Directory: `0x04-pagination`
