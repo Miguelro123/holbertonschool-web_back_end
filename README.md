@@ -14,6 +14,9 @@ Number | Projects | Date and time
 0x03 | [Caching](./0x03-caching) | 24/07/2020, 5 days
 0x04 | [Pagination](./0x04-pagination) | 28/07/2020, 3 days
 0x05 | [Personal data](./0x05-personal_data) | 31/07/2020, 9 days
+0x06 | [Basic authentication](./0x06-Basic_authentication) | 04/08/2020, 8 days
+0x07 | [Session authentication](./0x07-Session_authentication) | 06/08/2020, 8 days
+0x08 | [User authentication service](./0x08-user_authentication_service) | 14/08/2020, 7 days
 
 ---
 
