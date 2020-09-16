@@ -1,11 +1,7 @@
-import signUpUser from '4-all-reject';
-import uploadPhoto from '5-all-reject';
+import signUpUser from './4-all-reject';
+import uploadPhoto from './5-all-reject';
 
-export default async function handleProfileSignup(
-  firstName,
-  lastName,
-  fileName,
-) {
+export default async function handleProfileSignup(firstName,lastName,fileName,) {
   const res = [];
   try {
     const user = await signUpUser(firstName, lastName);
