@@ -1,11 +1,11 @@
 // returns a string of all the set values that start with a specific string (startString).
 export default function cleanSet(set, startString) {
-  let string = '';
-  if (typeof (startString) === 'string' && startString !== '') {
-    set.forEach((val) => {
-      if (val.includes(startString)) string = string.concat(`-${val.replace(startString, '')}`);
-    });
-    string = string.substring(1);
-  }
-  return string;
+  if (!startString || !startString.length) return '';
+
+  let res = '';
+  set.forEach((item) => {
+    if (item && item.startsWith(startString)) res += `${item.slice(startString.length)}-`;
+  });
+
+  return res.slice(0, res.length - 1);
 }
